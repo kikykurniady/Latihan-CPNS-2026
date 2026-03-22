@@ -1,17 +1,18 @@
-import 'package:latihan_cpns/models/answer.dart';
 
 class Question {
-  final String id;
-  final String subTopicId;
-  final String questionText;
-  final List<Answer> answers;
-  final String? explanation;
+  final int id;
+  final String category;
+  final String question;
+  final List<String> options;
+  final int correctAnswer;
+  final List<int>? tkpWeights;
 
-  const Question({
+  Question({
     required this.id,
-    required this.subTopicId,
-    required this.questionText,
-    required this.answers,
-    this.explanation,
+    required this.category,
+    required this.question,
+    required this.options,
+    required this.correctAnswer,
+    this.tkpWeights,
   });
 }
