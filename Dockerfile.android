@@ -1,0 +1,20 @@
+FROM cirrusci/flutter:latest
+
+# Set environment variables
+ENV ANDROID_HOME=/home/flutter/.android
+ENV PATH=$PATH:$ANDROID_HOME/cmdline-tools/bin:$ANDROID_HOME/platform-tools
+
+WORKDIR /workspace
+
+# Copy project files
+COPY . .
+
+# Get dependencies
+RUN flutter pub get
+
+# Build APK
+RUN flutter build apk --release
+
+# Output location: build/app/outputs/flutter-apk/app-release.apk
+
+CMD ["bash"]
