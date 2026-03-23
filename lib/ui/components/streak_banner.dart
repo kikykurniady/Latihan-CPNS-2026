@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
 
 class StreakBanner extends StatefulWidget {
   const StreakBanner({super.key});
@@ -33,7 +33,6 @@ class _StreakBannerState extends State<StreakBanner>
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data/models/quiz_session.dart';
-import '../data/repositories/session_repository.dart';
 import 'database_providers.dart';
 
 part 'history_provider.freezed.dart';
@@ -30,7 +29,8 @@ class HistoryState with _$HistoryState {
   factory HistoryState.initial() => const HistoryState(
         sessions: [],
         filteredSessions: [],
-        stats: HistoryStats(totalSessions: 0, averageScore: 0, highestScore: 0, lowestScore: 0),
+        stats: HistoryStats(
+            totalSessions: 0, averageScore: 0, highestScore: 0, lowestScore: 0),
       );
 }
 
@@ -49,16 +49,21 @@ class HistoryNotifier extends Notifier<HistoryState> {
 
   void filterByCategory(String? category) {
     if (category == null) {
-      state = state.copyWith(filteredSessions: state.sessions, selectedCategory: null);
+      state = state.copyWith(
+          filteredSessions: state.sessions, selectedCategory: null);
     } else {
-      final filtered = state.sessions.where((s) => s.category == category).toList();
-      state = state.copyWith(filteredSessions: filtered, selectedCategory: category);
+      final filtered =
+          state.sessions.where((s) => s.category == category).toList();
+      state = state.copyWith(
+          filteredSessions: filtered, selectedCategory: category);
     }
     _computeStats();
   }
 
-  List<({double x, double y, DateTime date, String category})> computeChartData() {
-    final chartData = state.filteredSessions.reversed.mapIndexed((index, session) {
+  List<({double x, double y, DateTime date, String category})>
+      computeChartData() {
+    final chartData =
+        state.filteredSessions.reversed.mapIndexed((index, session) {
       return (
         x: index.toDouble(),
         y: session.score,
@@ -70,14 +75,15 @@ class HistoryNotifier extends Notifier<HistoryState> {
   }
 
   HistoryStats getStatsByCategory(String category) {
-    final sessions = state.sessions.where((s) => s.category == category).toList();
+    final sessions =
+        state.sessions.where((s) => s.category == category).toList();
     return _calculateStats(sessions);
   }
-  
+
   void addSession(QuizSession session) {
-     final updatedSessions = [session, ...state.sessions];
-      state = state.copyWith(sessions: updatedSessions);
-      filterByCategory(state.selectedCategory);
+    final updatedSessions = [session, ...state.sessions];
+    state = state.copyWith(sessions: updatedSessions);
+    filterByCategory(state.selectedCategory);
   }
 
   void _computeStats() {
@@ -87,7 +93,8 @@ class HistoryNotifier extends Notifier<HistoryState> {
 
   HistoryStats _calculateStats(List<QuizSession> sessions) {
     if (sessions.isEmpty) {
-      return const HistoryStats(totalSessions: 0, averageScore: 0, highestScore: 0, lowestScore: 0);
+      return const HistoryStats(
+          totalSessions: 0, averageScore: 0, highestScore: 0, lowestScore: 0);
     }
     final scores = sessions.map((s) => s.score);
     return HistoryStats(
@@ -99,6 +106,7 @@ class HistoryNotifier extends Notifier<HistoryState> {
   }
 }
 
-final historyProvider = NotifierProvider<HistoryNotifier, HistoryState>(HistoryNotifier.new);
+final historyProvider =
+    NotifierProvider<HistoryNotifier, HistoryState>(HistoryNotifier.new);
 
 final historyFilterProvider = StateProvider<String?>((ref) => null);

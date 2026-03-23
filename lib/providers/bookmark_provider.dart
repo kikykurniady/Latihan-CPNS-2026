@@ -2,20 +2,21 @@ import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../data/database/app_database.dart';
-import '../data/repositories/bookmark_repository.dart';
-import '../data/repositories/question_repository.dart';
+import '../models/question.dart';
 import 'database_providers.dart';
-
 
 class BookmarkNotifier extends AsyncNotifier<List<Question>> {
   @override
   FutureOr<List<Question>> build() async {
-    final bookmarkedIds = await ref.watch(bookmarkRepositoryProvider).getBookmarkedQuestions().first;
+    final bookmarkedIds = await ref
+        .watch(bookmarkRepositoryProvider)
+        .getBookmarkedQuestions()
+        .first;
     if (bookmarkedIds.isEmpty) return [];
 
     final questionRepo = ref.read(questionRepositoryProvider);
-    final questions = await Future.wait(bookmarkedIds.map((id) => questionRepo.getById(id)));
+    final questions =
+        await Future.wait(bookmarkedIds.map((id) => questionRepo.getById(id)));
     return questions;
   }
 
@@ -43,4 +44,6 @@ class BookmarkNotifier extends AsyncNotifier<List<Question>> {
   }
 }
 
-final bookmarkProvider = AsyncNotifierProvider<BookmarkNotifier, List<Question>>(BookmarkNotifier.new);
+final bookmarkProvider =
+    AsyncNotifierProvider<BookmarkNotifier, List<Question>>(
+        BookmarkNotifier.new);

@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../data/models/quiz_session.dart';
-import '../data/repositories/session_repository.dart';
 import 'database_providers.dart';
 
 part 'progress_provider.freezed.dart';
@@ -16,7 +15,7 @@ class CategoryProgress with _$CategoryProgress {
     double? lastScore,
   }) = _CategoryProgress;
 
-   factory CategoryProgress.initial() => const CategoryProgress(
+  factory CategoryProgress.initial() => const CategoryProgress(
         totalAttempts: 0,
         averageScore: 0,
         completedSubTopics: [],
@@ -28,12 +27,13 @@ class ProgressState with _$ProgressState {
   const factory ProgressState({
     required Map<String, CategoryProgress> categoryProgress,
     required int dailyProgress,
-     @Default(20) required int dailyTarget,
+    @Default(20) int dailyTarget,
   }) = _ProgressState;
 
   factory ProgressState.initial() => const ProgressState(
         categoryProgress: {},
         dailyProgress: 0,
+        dailyTarget: 20,
       );
 }
 
@@ -46,7 +46,7 @@ class ProgressNotifier extends Notifier<AsyncValue<ProgressState>> {
   Future<void> load() async {
     final sessionRepo = ref.read(sessionRepositoryProvider);
     final sessions = await sessionRepo.getSessions();
-    
+
     final Map<String, List<QuizSession>> sessionsByCategory = {};
     for (var session in sessions) {
       if (!sessionsByCategory.containsKey(session.category)) {
@@ -58,14 +58,20 @@ class ProgressNotifier extends Notifier<AsyncValue<ProgressState>> {
     final Map<String, CategoryProgress> categoryProgressMap = {};
     sessionsByCategory.forEach((category, sessionList) {
       final totalAttempts = sessionList.length;
-      final averageScore = sessionList.map((s) => s.score).reduce((a, b) => a + b) / totalAttempts;
+      final averageScore =
+          sessionList.map((s) => s.score).reduce((a, b) => a + b) /
+              totalAttempts;
       final lastScore = sessionList.isNotEmpty ? sessionList.last.score : null;
 
-      final completedSubTopics = sessionList.where((s) {
-        if (s.subTopic == null) return false;
-        final passingScore = _getPassingScore(s.category);
-        return s.score >= passingScore;
-      }).map((s) => s.subTopic!).toSet().toList();
+      final completedSubTopics = sessionList
+          .where((s) {
+            if (s.subTopic == null) return false;
+            final passingScore = _getPassingScore(s.category);
+            return s.score >= passingScore;
+          })
+          .map((s) => s.subTopic!)
+          .toSet()
+          .toList();
 
       categoryProgressMap[category] = CategoryProgress(
         totalAttempts: totalAttempts,
@@ -74,24 +80,26 @@ class ProgressNotifier extends Notifier<AsyncValue<ProgressState>> {
         completedSubTopics: completedSubTopics,
       );
     });
-    
-    final dailyProgress = sessions.where((s) => s.startTime.difference(DateTime.now()).inDays == 0).length;
+
+    final dailyProgress = sessions
+        .where((s) => s.startTime.difference(DateTime.now()).inDays == 0)
+        .length;
 
     state = AsyncData(ProgressState(
       categoryProgress: categoryProgressMap,
-       dailyProgress: dailyProgress,
+      dailyProgress: dailyProgress,
+      dailyTarget: 20,
     ));
   }
 
   double getSubTopicCompletion(String category, String subTopic) {
-     return state.maybeWhen(
-       data: (data) {
-          final sessions = ref.read(sessionRepositoryProvider).getBySubTopic(category, subTopic);
-          // This is not efficient, but for the sake of simplicity
-          return 0.0;
-       },
-       orElse: () => 0.0,
-     );
+    return state.maybeWhen(
+      data: (data) {
+        // TODO: Implement session tracking by subTopic
+        return 0.0;
+      },
+      orElse: () => 0.0,
+    );
   }
 
   Future<void> refreshAfterQuiz() async {
@@ -112,4 +120,6 @@ class ProgressNotifier extends Notifier<AsyncValue<ProgressState>> {
   }
 }
 
-final progressProvider = NotifierProvider<ProgressNotifier, AsyncValue<ProgressState>>(ProgressNotifier.new);
+final progressProvider =
+    NotifierProvider<ProgressNotifier, AsyncValue<ProgressState>>(
+        ProgressNotifier.new);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
 
 class EmptyState extends StatelessWidget {
   const EmptyState({super.key});

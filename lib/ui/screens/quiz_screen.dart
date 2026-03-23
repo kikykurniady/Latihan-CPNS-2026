@@ -1,15 +1,17 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Assuming go_router is used for navigation
-import 'package:go_router/go_router.dart'; 
-import 'package:latihan_cpns/models/sub_topic.dart';
-import 'package:latihan_cpns/providers/quiz_provider.dart';
-import 'package:latihan_cpns/ui/components/explanation_card.dart';
-import 'package:latihan_cpns/ui/components/option_tile.dart';
-import 'package:latihan_cpns/ui/components/question_card.dart';
-import 'package:latihan_cpns/ui/components/quiz_header.dart';
+import 'package:go_router/go_router.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/models/sub_topic.dart';
+import 'package:latihan_cpns_2026/providers/quiz_provider.dart';
+import 'package:latihan_cpns_2026/ui/components/explanation_card.dart';
+import 'package:latihan_cpns_2026/ui/components/option_tile.dart';
+import 'package:latihan_cpns_2026/ui/components/question_card.dart';
+import 'package:latihan_cpns_2026/ui/components/quiz_header.dart';
 
 class QuizScreen extends ConsumerStatefulWidget {
   final SubTopic subTopic;
@@ -53,16 +55,16 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final state = ref.watch(quizProvider);
+    final notifier = ref.read(quizProvider.notifier);
+
     ref.listen(quizProvider.select((s) => s.isQuizFinished), (previous, next) {
       if (next == true) {
-        final result = ref.read(quizProvider.notifier).buildResult();
+        ref.read(quizProvider.notifier).buildResult();
         // Using a placeholder for GoRouter navigation
         // context.pushReplacement('/result', extra: result);
       }
     });
-
-    final state = ref.watch(quizProvider);
-    final notifier = ref.read(quizProvider.notifier);
 
     if (state.isLoading || state.currentQuestion == null) {
       return const Scaffold(
@@ -73,7 +75,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     }
 
     final question = state.currentQuestion!;
-    final categoryColor = state.categoryColor;
+    final categoryColor = AppColors.getCategoryColor(state.category);
 
     return PopScope(
       canPop: false,
@@ -90,7 +92,8 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: LinearProgressIndicator(
-                  value: (state.currentQuestionIndex + 1) / state.questions.length,
+                  value:
+                      (state.currentQuestionIndex + 1) / state.questions.length,
                   backgroundColor: Colors.grey[300],
                   valueColor: AlwaysStoppedAnimation<Color>(categoryColor),
                 ),
@@ -102,12 +105,13 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                     const SizedBox(height: 16),
                     QuestionCard(question: question),
                     const SizedBox(height: 20),
-                    ...question.answers.map((answer) {
+                    ...question.answers.mapIndexed((index, answer) {
                       return Padding(
                         padding: const EdgeInsets.only(bottom: 8.0),
                         child: OptionTile(
                           answer: answer,
                           question: question,
+                          answerIndex: index,
                         ),
                       );
                     }),
@@ -120,7 +124,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                           notifier.nextQuestion();
                           // Interstitial Ad Logic
                           if ((state.currentQuestionIndex + 1) % 10 == 0) {
-                             // adService.showInterstitial();
+                            // adService.showInterstitial();
                           }
                         },
                       ),

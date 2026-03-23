@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/quiz_result.dart';
+import 'package:latihan_cpns_2026/models/quiz_result.dart';
 
 class BreakdownCard extends StatelessWidget {
   final QuizResult result;
@@ -41,14 +41,21 @@ class BreakdownCard extends StatelessWidget {
     );
   }
 
-  Widget _buildStatItem(BuildContext context, {required IconData icon, required String label, required int value, required Color color}) {
+  Widget _buildStatItem(BuildContext context,
+      {required IconData icon,
+      required String label,
+      required int value,
+      required Color color}) {
     return Column(
       children: [
         Icon(icon, color: color, size: 32),
         const SizedBox(height: 8),
         Text(
           value.toString(),
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge
+              ?.copyWith(fontWeight: FontWeight.bold),
         ),
         const SizedBox(height: 4),
         Text(label, style: Theme.of(context).textTheme.bodySmall),

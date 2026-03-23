@@ -5,12 +5,13 @@ part 'bookmark.freezed.dart';
 part 'bookmark.g.dart';
 
 @freezed
+@JsonSerializable()
 class Bookmark with _$Bookmark {
-  @JsonSerializable()
   const factory Bookmark({
     required int questionId,
     required DateTime savedAt,
   }) = _Bookmark;
 
-  factory Bookmark.fromJson(Map<String, dynamic> json) => _$BookmarkFromJson(json);
+  factory Bookmark.fromJson(Map<String, dynamic> json) =>
+      _$BookmarkFromJson(json);
 }

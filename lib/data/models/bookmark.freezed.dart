@@ -105,7 +105,6 @@ class __$$BookmarkImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable()
 class _$BookmarkImpl implements _Bookmark {
   const _$BookmarkImpl({required this.questionId, required this.savedAt});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
-import 'package:latihan_cpns/models/sub_topic.dart';
-import 'package:latihan_cpns/ui/screens/quiz_screen.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/models/sub_topic.dart';
+import 'package:latihan_cpns_2026/ui/screens/quiz_screen.dart';
 
 class SubTopicTile extends StatelessWidget {
   final SubTopic subTopic;
@@ -36,7 +36,8 @@ class SubTopicTile extends StatelessWidget {
           children: [
             Text(
               subTopic.name,
-              style: textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+              style:
+                  textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 12),
             Row(
@@ -48,7 +49,8 @@ class SubTopicTile extends StatelessWidget {
                       value: progress,
                       minHeight: 10,
                       backgroundColor: AppColors.disabled.withOpacity(0.3),
-                      valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                          AppColors.primary),
                     ),
                   ),
                 ),
@@ -72,7 +74,8 @@ class SubTopicTile extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => QuizScreen(subTopic: subTopic),
+                            builder: (context) =>
+                                QuizScreen(subTopic: subTopic),
                           ),
                         );
                       },

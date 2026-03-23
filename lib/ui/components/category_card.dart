@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/category.dart';
-import 'package:latihan_cpns/ui/screens/sub_topic_screen.dart';
+import 'package:latihan_cpns_2026/models/category.dart';
+import 'package:latihan_cpns_2026/ui/screens/sub_topic_screen.dart';
 
 class CategoryCard extends StatelessWidget {
   final Category category;

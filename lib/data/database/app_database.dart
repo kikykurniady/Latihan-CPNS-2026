@@ -33,7 +33,7 @@ class AppDatabase extends _$AppDatabase {
   Future<void> _seedQuestions() async {
     final questions = [
       // TWK
-      model.Question(
+      const model.Question(
         id: 1,
         category: 'TWK',
         subTopic: 'Pancasila',
@@ -44,7 +44,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'mudah',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 2,
         category: 'TWK',
         subTopic: 'Pancasila',
@@ -55,7 +55,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'mudah',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 3,
         category: 'TWK',
         subTopic: 'UUD 1945',
@@ -66,7 +66,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 4,
         category: 'TWK',
         subTopic: 'UUD 1945',
@@ -77,7 +77,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 5,
         category: 'TWK',
         subTopic: 'NKRI',
@@ -88,7 +88,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sulit',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 6,
         category: 'TWK',
         subTopic: 'NKRI',
@@ -99,7 +99,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 7,
         category: 'TWK',
         subTopic: 'Bhinneka Tunggal Ika',
@@ -111,7 +111,7 @@ class AppDatabase extends _$AppDatabase {
         tkpWeights: null,
       ),
       // TIU
-      model.Question(
+      const model.Question(
         id: 8,
         category: 'TIU',
         subTopic: 'Verbal - Sinonim',
@@ -122,7 +122,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'mudah',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 9,
         category: 'TIU',
         subTopic: 'Verbal - Antonim',
@@ -133,7 +133,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'mudah',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 10,
         category: 'TIU',
         subTopic: 'Verbal - Analogi',
@@ -144,7 +144,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 11,
         category: 'TIU',
         subTopic: 'Numerik - Deret Angka',
@@ -155,7 +155,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 12,
         category: 'TIU',
         subTopic: 'Numerik - Deret Angka',
@@ -166,7 +166,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 13,
         category: 'TIU',
         subTopic: 'Figural',
@@ -177,7 +177,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sulit',
         tkpWeights: null,
       ),
-      model.Question(
+      const model.Question(
         id: 14,
         category: 'TIU',
         subTopic: 'Figural',
@@ -189,7 +189,7 @@ class AppDatabase extends _$AppDatabase {
         tkpWeights: null,
       ),
       // TKP
-      model.Question(
+      const model.Question(
         id: 15,
         category: 'TKP',
         subTopic: 'Pelayanan Publik',
@@ -206,7 +206,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: [1, 2, 3, 5, 4],
       ),
-      model.Question(
+      const model.Question(
         id: 16,
         category: 'TKP',
         subTopic: 'Sosial Budaya',
@@ -223,7 +223,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: [1, 2, 5, 3, 4],
       ),
-      model.Question(
+      const model.Question(
         id: 17,
         category: 'TKP',
         subTopic: 'TIK',
@@ -240,7 +240,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: [2, 3, 5, 1, 4],
       ),
-      model.Question(
+      const model.Question(
         id: 18,
         category: 'TKP',
         subTopic: 'Profesionalisme',
@@ -257,7 +257,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: [1, 3, 5, 2, 4],
       ),
-       model.Question(
+       const model.Question(
         id: 19,
         category: 'TKP',
         subTopic: 'Pelayanan Publik',
@@ -274,7 +274,7 @@ class AppDatabase extends _$AppDatabase {
         difficulty: 'sedang',
         tkpWeights: [1, 2, 5, 4, 3],
       ),
-       model.Question(
+       const model.Question(
         id: 20,
         category: 'TKP',
         subTopic: 'Profesionalisme',

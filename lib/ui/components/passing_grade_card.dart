@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/quiz_result.dart';
+import 'package:latihan_cpns_2026/models/quiz_result.dart';
 
 class PassingGradeCard extends StatelessWidget {
   final QuizResult result;
@@ -46,7 +46,8 @@ class PassingGradeCard extends StatelessWidget {
             LinearProgressIndicator(
               value: score / passingGrade,
               backgroundColor: Colors.grey[300],
-              valueColor: AlwaysStoppedAnimation<Color>(isPassing ? Colors.green : Colors.red),
+              valueColor: AlwaysStoppedAnimation<Color>(
+                  isPassing ? Colors.green : Colors.red),
               minHeight: 8,
             ),
             const SizedBox(height: 8),
@@ -68,8 +69,12 @@ class PassingGradeCard extends StatelessWidget {
   }
 
   Widget _buildScoreIndicator(
-    BuildContext context,
-  { required String title, required double score, required IconData icon, required Color color, } ){
+    BuildContext context, {
+    required String title,
+    required double score,
+    required IconData icon,
+    required Color color,
+  }) {
     return Row(
       children: [
         Icon(icon, color: color, size: 28),
@@ -80,7 +85,10 @@ class PassingGradeCard extends StatelessWidget {
             Text(title, style: Theme.of(context).textTheme.bodySmall),
             Text(
               score.toStringAsFixed(0),
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleLarge
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
           ],
         ),

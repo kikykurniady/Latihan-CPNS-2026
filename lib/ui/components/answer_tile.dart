@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
-import 'package:latihan_cpns/models/answer.dart';
-import 'package:latihan_cpns/models/question.dart';
-import 'package:latihan_cpns/providers/quiz_provider.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/models/answer.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
+import 'package:latihan_cpns_2026/providers/quiz_provider.dart';
 
 class AnswerTile extends ConsumerWidget {
   final Question question;
@@ -40,13 +40,15 @@ class AnswerTile extends ConsumerWidget {
       color: tileColor,
       child: ListTile(
         title: Text(answer.text),
-        trailing: trailingIcon != null ? Icon(trailingIcon, color: Colors.white) : null,
+        trailing: trailingIcon != null
+            ? Icon(trailingIcon, color: Colors.white)
+            : null,
         onTap: isSubmitted
             ? null
             : () {
                 ref.read(selectedAnswersProvider.notifier).update((state) {
                   final newState = Map<String, String>.from(state);
-                  newState[question.id] = answer.text;
+                  newState[question.id.toString()] = answer.text;
                   return newState;
                 });
               },

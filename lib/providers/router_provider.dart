@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:cpns_app/ui/screens/home_screen.dart';
+import 'package:latihan_cpns_2026/ui/screens/home_screen.dart';
 
 // This is a placeholder
 final appRouterProvider = Provider<GoRouter>((ref) {

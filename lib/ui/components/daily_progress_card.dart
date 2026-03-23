@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
+import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
 
 class DailyProgressCard extends StatelessWidget {
   const DailyProgressCard({super.key});
@@ -9,7 +9,7 @@ class DailyProgressCard extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     const double dailyGoal = 50.0;
     const double currentProgress = 15.0;
-    final double progressPercentage = currentProgress / dailyGoal;
+    const double progressPercentage = currentProgress / dailyGoal;
 
     return Card(
       elevation: 4,
@@ -51,7 +51,8 @@ class DailyProgressCard extends StatelessWidget {
                 value: progressPercentage,
                 minHeight: 12,
                 backgroundColor: AppColors.disabled.withOpacity(0.3),
-                valueColor: const AlwaysStoppedAnimation<Color>(AppColors.primary),
+                valueColor:
+                    const AlwaysStoppedAnimation<Color>(AppColors.primary),
               ),
             ),
             const SizedBox(height: 16),

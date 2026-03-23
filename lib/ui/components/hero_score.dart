@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/quiz_result.dart';
+import 'package:latihan_cpns_2026/models/quiz_result.dart';
 
 class HeroScore extends StatelessWidget {
   final QuizResult result;

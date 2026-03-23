@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
 
 class ResultQuestionCard extends StatelessWidget {
   final Question question;
@@ -53,12 +53,15 @@ class ResultQuestionCard extends StatelessWidget {
                   ],
                 ),
               );
-            }).toList(),
+            }),
             if (question.explanation != null) ...[
               const SizedBox(height: 16),
               Text(
                 'Penjelasan:',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(question.explanation!),

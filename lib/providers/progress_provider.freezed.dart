@@ -319,7 +319,7 @@ class _$ProgressStateImpl implements _ProgressState {
   const _$ProgressStateImpl(
       {required final Map<String, CategoryProgress> categoryProgress,
       required this.dailyProgress,
-      required this.dailyTarget = 20})
+      this.dailyTarget = 20})
       : _categoryProgress = categoryProgress;
 
   final Map<String, CategoryProgress> _categoryProgress;
@@ -372,7 +372,7 @@ abstract class _ProgressState implements ProgressState {
   const factory _ProgressState(
       {required final Map<String, CategoryProgress> categoryProgress,
       required final int dailyProgress,
-      required final int dailyTarget}) = _$ProgressStateImpl;
+      final int dailyTarget}) = _$ProgressStateImpl;
 
   @override
   Map<String, CategoryProgress> get categoryProgress;

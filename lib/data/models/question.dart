@@ -5,8 +5,8 @@ part 'question.freezed.dart';
 part 'question.g.dart';
 
 @freezed
+@JsonSerializable()
 class Question with _$Question {
-  @JsonSerializable()
   const factory Question({
     required int id,
     required String category, // 'TWK' | 'TIU' | 'TKP'
@@ -19,5 +19,6 @@ class Question with _$Question {
     List<int>? tkpWeights, // null for TWK/TIU, [1,2,3,4,5] for TKP
   }) = _Question;
 
-  factory Question.fromJson(Map<String, dynamic> json) => _$QuestionFromJson(json);
+  factory Question.fromJson(Map<String, dynamic> json) =>
+      _$QuestionFromJson(json);
 }

@@ -1,4 +1,5 @@
-import '../data/database/app_database.dart';
+import '../../models/question.dart';
+import '../database/app_database.dart';
 
 abstract class QuestionRepository {
   Future<List<Question>> getAll();

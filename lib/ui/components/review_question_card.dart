@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
-import 'package:latihan_cpns/models/answer.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
+import 'package:latihan_cpns_2026/models/answer.dart';
 
 class ReviewQuestionCard extends StatelessWidget {
   final Question question;
@@ -24,17 +24,25 @@ class ReviewQuestionCard extends StatelessWidget {
           children: [
             Text(
               'Pertanyaan',
-              style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall
+                  ?.copyWith(fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
-            Text(question.text),
+            Text(question.questionText),
             const SizedBox(height: 16),
-            ...question.answers.map((answer) => _buildAnswerOption(context, answer)),
-            if (question.explanation != null && question.explanation!.isNotEmpty) ...[
+            ...question.answers
+                .map((answer) => _buildAnswerOption(context, answer)),
+            if (question.explanation != null &&
+                question.explanation!.isNotEmpty) ...[
               const Divider(height: 20),
               Text(
                 'Penjelasan:',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(question.explanation!),
@@ -62,9 +70,9 @@ class ReviewQuestionCard extends StatelessWidget {
       borderColor = Colors.red;
       leadingIcon = const Icon(Icons.cancel, color: Colors.red);
     } else if (selectedAnswer == null && !isCorrect) {
-       // No answer was selected, this is just a wrong option
+      // No answer was selected, this is just a wrong option
     } else if (isSelected) {
-       // This is the correct answer and it was selected
+      // This is the correct answer and it was selected
     }
 
     return Card(

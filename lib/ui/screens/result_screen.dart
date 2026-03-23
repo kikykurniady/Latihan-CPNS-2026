@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:latihan_cpns/models/quiz_result.dart';
-import 'package:latihan_cpns/ui/components/breakdown_card.dart';
-import 'package:latihan_cpns/ui/components/duration_chip.dart';
-import 'package:latihan_cpns/ui/components/hero_score.dart';
-import 'package:latihan_cpns/ui/components/passing_grade_card.dart';
+import 'package:latihan_cpns_2026/models/quiz_result.dart';
+import 'package:latihan_cpns_2026/ui/components/breakdown_card.dart';
+import 'package:latihan_cpns_2026/ui/components/duration_chip.dart';
+import 'package:latihan_cpns_2026/ui/components/hero_score.dart';
+import 'package:latihan_cpns_2026/ui/components/passing_grade_card.dart';
 
 class ResultScreen extends StatelessWidget {
   final QuizResult result;
@@ -31,7 +31,7 @@ class ResultScreen extends StatelessWidget {
               actions: [
                 IconButton(
                   icon: const Icon(Icons.share),
-                  onPressed: () { /* Share logic */ },
+                  onPressed: () {/* Share logic */},
                 ),
               ],
             ),
@@ -51,32 +51,32 @@ class ResultScreen extends StatelessWidget {
           ),
         ),
       ),
-       bottomNavigationBar: Padding(
-         padding: const EdgeInsets.all(16.0),
-         child: Row(
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-           children: [
-             Expanded(
-               child: OutlinedButton.icon(
-                 icon: const Icon(Icons.home),
-                 label: const Text('Beranda'),
-                 onPressed: () => context.go('/'), // Navigate to Home
-               ),
-             ),
-             const SizedBox(width: 16),
-             Expanded(
-               child: ElevatedButton.icon(
-                 icon: const Icon(Icons.rate_review),
-                 label: const Text('Tinjau'),
-                 onPressed: () {
-                   // Navigate to Review Screen, passing the list of questions
-                   // context.push('/review', extra: result.questions);
-                 },
-               ),
-             ),
-           ],
-         ),
-       ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: OutlinedButton.icon(
+                icon: const Icon(Icons.home),
+                label: const Text('Beranda'),
+                onPressed: () => context.go('/'), // Navigate to Home
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.rate_review),
+                label: const Text('Tinjau'),
+                onPressed: () {
+                  // Navigate to Review Screen, passing the list of questions
+                  // context.push('/review', extra: result.questions);
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

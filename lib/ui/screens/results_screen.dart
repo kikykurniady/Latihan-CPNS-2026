@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
-import 'package:latihan_cpns/ui/components/result_question_card.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
+import 'package:latihan_cpns_2026/ui/components/result_question_card.dart';
 
 class ResultsScreen extends StatelessWidget {
   final List<Question> questions;
@@ -18,7 +18,8 @@ class ResultsScreen extends StatelessWidget {
     for (final question in questions) {
       final selectedAnswer = selectedAnswers[question.id];
       if (selectedAnswer != null) {
-        final answer = question.answers.firstWhere((a) => a.text == selectedAnswer);
+        final answer =
+            question.answers.firstWhere((a) => a.text == selectedAnswer);
         if (answer.isCorrect) {
           correctAnswers++;
         }
@@ -37,8 +38,13 @@ class ResultsScreen extends StatelessWidget {
             color: Theme.of(context).primaryColor.withOpacity(0.1),
             child: Column(
               children: [
-                Text('Skor Anda:', style: Theme.of(context).textTheme.headlineMedium),
-                Text('$correctAnswers / ${questions.length}', style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold)),
+                Text('Skor Anda:',
+                    style: Theme.of(context).textTheme.headlineMedium),
+                Text('$correctAnswers / ${questions.length}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .displaySmall
+                        ?.copyWith(fontWeight: FontWeight.bold)),
               ],
             ),
           ),

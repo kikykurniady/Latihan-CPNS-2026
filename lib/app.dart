@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:cpns_app/core/constants/app_strings.dart';
-import 'package:cpns_app/core/theme.dart';
-import 'package:cpns_app/providers/router_provider.dart';
-import 'package:cpns_app/providers/streak_provider.dart';
+import 'package:latihan_cpns_2026/core/constants/app_strings.dart';
+import 'package:latihan_cpns_2026/core/theme.dart';
+import 'package:latihan_cpns_2026/providers/router_provider.dart';
+import 'package:latihan_cpns_2026/providers/streak_provider.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -17,11 +16,6 @@ class MyApp extends ConsumerWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       routerConfig: ref.watch(appRouterProvider),
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-      ],
       supportedLocales: const [
         Locale('id', 'ID'),
         Locale('en', 'US'),

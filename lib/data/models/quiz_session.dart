@@ -5,8 +5,8 @@ part 'quiz_session.freezed.dart';
 part 'quiz_session.g.dart';
 
 @freezed
+@JsonSerializable()
 class QuizSession with _$QuizSession {
-  @JsonSerializable()
   const factory QuizSession({
     required String id, // uuid
     required String category,
@@ -22,5 +22,6 @@ class QuizSession with _$QuizSession {
     required bool isRandom,
   }) = _QuizSession;
 
-  factory QuizSession.fromJson(Map<String, dynamic> json) => _$QuizSessionFromJson(json);
+  factory QuizSession.fromJson(Map<String, dynamic> json) =>
+      _$QuizSessionFromJson(json);
 }

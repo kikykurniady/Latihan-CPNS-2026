@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
 
 class QuestionCard extends StatelessWidget {
   final Question question;

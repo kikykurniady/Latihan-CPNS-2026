@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/core/constants/dummy_data.dart';
-import 'package:latihan_cpns/models/category.dart';
-import 'package:latihan_cpns/ui/components/sub_topic_tile.dart';
-import 'package:latihan_cpns/ui/components/empty_state.dart';
+import 'package:latihan_cpns_2026/core/constants/dummy_data.dart';
+import 'package:latihan_cpns_2026/models/category.dart';
+import 'package:latihan_cpns_2026/ui/components/sub_topic_tile.dart';
+import 'package:latihan_cpns_2026/ui/components/empty_state.dart';
 
 class SubTopicScreen extends StatelessWidget {
   final Category category;

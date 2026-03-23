@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
 
 class ExplanationCard extends StatelessWidget {
   final Question question;
@@ -37,11 +37,15 @@ class ExplanationCard extends StatelessWidget {
                 ),
               ],
             ),
-            if (question.explanation != null && question.explanation!.isNotEmpty) ...[
+            if (question.explanation != null &&
+                question.explanation!.isNotEmpty) ...[
               const Divider(height: 20),
               Text(
                 'Penjelasan:',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.bold),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall
+                    ?.copyWith(fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               Text(question.explanation!),

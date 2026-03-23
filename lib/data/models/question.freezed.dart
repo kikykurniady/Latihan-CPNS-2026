@@ -203,7 +203,6 @@ class __$$QuestionImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable()
 class _$QuestionImpl implements _Question {
   const _$QuestionImpl(

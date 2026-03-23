@@ -1,51 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:latihan_cpns/models/answer.dart';
-import 'package:latihan_cpns/models/question.dart';
-import 'package:latihan_cpns/providers/quiz_provider.dart';
-
-enum OptionState { 
-  initial, 
-  selected, 
-  correct, 
-  wrong, 
-  correctNotSelected 
-}
+import 'package:latihan_cpns_2026/models/answer.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
+import 'package:latihan_cpns_2026/providers/quiz_provider.dart';
 
 class OptionTile extends ConsumerWidget {
   final Answer answer;
   final Question question;
+  final int answerIndex;
 
-  const OptionTile({super.key, required this.answer, required this.question});
+  const OptionTile({
+    super.key,
+    required this.answer,
+    required this.question,
+    required this.answerIndex,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final quizState = ref.watch(quizProvider);
     final quizNotifier = ref.read(quizProvider.notifier);
 
-    final state = quizNotifier.getOptionState(answer, question);
+    final optionState = quizNotifier.getOptionState(question.id, answerIndex);
 
     final Color borderColor;
     final Color backgroundColor;
     final Widget? leading;
 
-    switch (state) {
-      case OptionState.selected:
+    switch (optionState) {
+      case 'selected':
         borderColor = Colors.blue.shade700;
         backgroundColor = Colors.blue.withOpacity(0.1);
         leading = null;
         break;
-      case OptionState.correct:
+      case 'correct':
         borderColor = Colors.green.shade700;
         backgroundColor = Colors.green.withOpacity(0.1);
         leading = Icon(Icons.check_circle, color: Colors.green.shade700);
         break;
-      case OptionState.wrong:
+      case 'wrong':
         borderColor = Colors.red.shade700;
         backgroundColor = Colors.red.withOpacity(0.1);
         leading = Icon(Icons.cancel, color: Colors.red.shade700);
         break;
-      case OptionState.correctNotSelected:
+      case 'correctNotSelected':
         borderColor = Colors.green.shade700;
         backgroundColor = Colors.transparent;
         leading = null;
@@ -57,14 +55,15 @@ class OptionTile extends ConsumerWidget {
     }
 
     return GestureDetector(
-      onTap: quizState.showExplanation 
-          ? null 
-          : () => quizNotifier.selectAnswer(answer, question),
+      onTap: quizState.showExplanation
+          ? null
+          : () => quizNotifier.selectAnswer(question.id, answerIndex),
       child: Card(
         elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: BorderSide(color: borderColor, width: state == OptionState.initial ? 1 : 2),
+          side: BorderSide(
+              color: borderColor, width: optionState == 'unselected' ? 1 : 2),
         ),
         color: backgroundColor,
         child: Padding(

@@ -1,5 +1,5 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:latihan_cpns/core/constants/ad_constants.dart';
+import 'package:latihan_cpns_2026/core/constants/ad_constants.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AdService {
@@ -33,7 +33,7 @@ class AdService {
         // Preload the next ad
         loadInterstitial();
       },
-       onAdFailedToShowFullScreenContent: (ad, error) {
+      onAdFailedToShowFullScreenContent: (ad, error) {
         ad.dispose();
         loadInterstitial();
       },

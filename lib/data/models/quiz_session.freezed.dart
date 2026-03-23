@@ -240,7 +240,6 @@ class __$$QuizSessionImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
 @JsonSerializable()
 class _$QuizSessionImpl implements _QuizSession {
   const _$QuizSessionImpl(

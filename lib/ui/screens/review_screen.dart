@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:latihan_cpns/models/question.dart';
-import 'package:latihan_cpns/ui/components/review_question_card.dart';
+import 'package:latihan_cpns_2026/models/question.dart';
+import 'package:latihan_cpns_2026/ui/components/review_question_card.dart';
 
 class ReviewScreen extends StatelessWidget {
   final List<Question> questions;
