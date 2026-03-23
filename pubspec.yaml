@@ -1,7 +1,7 @@
 name: latihan_cpns_2026
-description: "Aplikasi Latihan Soal CPNS (Calon Pegawai Negeri Sipil) Indonesia"
+description: "Aplikasi Latihan Soal CPNS (Calon Pegawai Negeri Sipil) Indonesia - Persiapan ujian CPNS dengan ribuan soal latihan"
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.5.0 <4.0.0'

@@ -44,9 +44,11 @@ class AppStrings {
 
   // Empty States
   static const String noBookmarks = 'Bookmark Kosong';
-  static const String noBookmarksDesc = 'Tandai soal yang kamu anggap penting untuk dipelajari lagi di sini.';
+  static const String noBookmarksDesc =
+      'Tandai soal yang kamu anggap penting untuk dipelajari lagi di sini.';
   static const String noHistory = 'Riwayat Kosong';
-  static const String noHistoryDesc = 'Semua hasil latihanmu akan tersimpan di sini.';
+  static const String noHistoryDesc =
+      'Semua hasil latihanmu akan tersimpan di sini.';
 
   // Errors
   static const String generalError = 'Terjadi kesalahan. Coba lagi nanti.';

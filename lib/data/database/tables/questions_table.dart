@@ -10,7 +10,8 @@ class QuestionsTable extends Table {
   IntColumn get correctAnswer => integer()();
   TextColumn get explanation => text()();
   TextColumn get difficulty => text()();
-  TextColumn get tkpWeights => text().map(const ListIntConverter()).nullable()();
+  TextColumn get tkpWeights =>
+      text().map(const ListIntConverter()).nullable()();
 }
 
 class ListConverter extends TypeConverter<List<String>, String> {

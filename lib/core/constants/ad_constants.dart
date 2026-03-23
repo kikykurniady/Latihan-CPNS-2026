@@ -7,6 +7,8 @@ class AdConstants {
   static const String androidInter = 'ca-app-pub-3940256099942544/1033173712';
   static const String iosInter = 'ca-app-pub-3940256099942544/4411468910';
 
-  static String get bannerAdUnitId => Platform.isAndroid ? androidBanner : iosBanner;
-  static String get interstitialAdUnitId => Platform.isAndroid ? androidInter : iosInter;
+  static String get bannerAdUnitId =>
+      Platform.isAndroid ? androidBanner : iosBanner;
+  static String get interstitialAdUnitId =>
+      Platform.isAndroid ? androidInter : iosInter;
 }

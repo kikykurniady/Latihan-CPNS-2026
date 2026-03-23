@@ -33,7 +33,7 @@ class Formatter {
     }
   }
 
-    static String formatDifficulty(String difficulty) {
+  static String formatDifficulty(String difficulty) {
     if (difficulty.isEmpty) return '';
     return difficulty[0].toUpperCase() + difficulty.substring(1).toLowerCase();
   }

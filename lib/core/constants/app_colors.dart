@@ -18,7 +18,7 @@ class AppColors {
 
   // Semantic Colors
   static const Color success = Color(0xFF388E3C); // Green
-  static const Color error = Color(0xFFD32F2F);   // Red
+  static const Color error = Color(0xFFD32F2F); // Red
   static const Color warning = Color(0xFFFFA000); // Amber
 
   // Streak Banner Gradient
@@ -29,7 +29,7 @@ class AppColors {
   static Color progressLow = Colors.red[400]!;
   static Color progressMid = Colors.orange[400]!;
   static Color progressHigh = Colors.green[400]!;
-  
+
   static Color getCategoryColor(String category) {
     switch (category.toUpperCase()) {
       case 'TWK':

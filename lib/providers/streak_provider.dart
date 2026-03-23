@@ -8,4 +8,5 @@ class StreakNotifier extends Notifier<int> {
   void checkAndUpdateStreak() {}
 }
 
-final streakProvider = NotifierProvider<StreakNotifier, int>(StreakNotifier.new);
+final streakProvider =
+    NotifierProvider<StreakNotifier, int>(StreakNotifier.new);

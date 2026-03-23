@@ -74,9 +74,8 @@ class QuizNotifier extends StateNotifier<QuizState> {
 
   void loadQuestions(dynamic subTopic) {
     final subTopicId = subTopic is String ? subTopic : subTopic.id;
-    final questions = dummyQuestions
-        .where((q) => q.subTopic == subTopicId)
-        .toList();
+    final questions =
+        dummyQuestions.where((q) => q.subTopic == subTopicId).toList();
     state = state.copyWith(questions: questions);
   }
 
