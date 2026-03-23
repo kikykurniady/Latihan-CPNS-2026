@@ -5,7 +5,6 @@ part 'quiz_session.freezed.dart';
 part 'quiz_session.g.dart';
 
 @freezed
-@JsonSerializable()
 class QuizSession with _$QuizSession {
   const factory QuizSession({
     required String id, // uuid

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latihan_cpns_2026/core/constants/app_colors.dart';
 
 class AppTheme {
-  static final _textTheme = const TextTheme(
+  static const _textTheme = TextTheme(
     displayLarge: TextStyle(fontSize: 57, fontWeight: FontWeight.bold),
     displayMedium: TextStyle(fontSize: 45, fontWeight: FontWeight.bold),
     displaySmall: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),

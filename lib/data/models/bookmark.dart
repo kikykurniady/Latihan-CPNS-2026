@@ -5,7 +5,6 @@ part 'bookmark.freezed.dart';
 part 'bookmark.g.dart';
 
 @freezed
-@JsonSerializable()
 class Bookmark with _$Bookmark {
   const factory Bookmark({
     required int questionId,

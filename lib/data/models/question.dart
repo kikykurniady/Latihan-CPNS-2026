@@ -5,7 +5,6 @@ part 'question.freezed.dart';
 part 'question.g.dart';
 
 @freezed
-@JsonSerializable()
 class Question with _$Question {
   const factory Question({
     required int id,
@@ -21,4 +20,26 @@ class Question with _$Question {
 
   factory Question.fromJson(Map<String, dynamic> json) =>
       _$QuestionFromJson(json);
+
+  static Question fromOptions({
+    required int id,
+    required String category,
+    required String question,
+    required List<String> options,
+    required int correctAnswer,
+    String? explanation,
+    String? subTopic,
+  }) {
+    return Question(
+      id: id,
+      category: category,
+      subTopic: subTopic ?? '',
+      question: question,
+      options: options,
+      correctAnswer: correctAnswer,
+      explanation: explanation ?? '',
+      difficulty: 'sedang',
+      tkpWeights: null,
+    );
+  }
 }

@@ -15,27 +15,72 @@ class QuestionRepositoryImpl implements QuestionRepository {
   QuestionRepositoryImpl(this._db);
 
   @override
-  Future<List<Question>> getAll() {
-    return _db.questionDao.getAllQuestions();
+  Future<List<Question>> getAll() async {
+    final data = await _db.questionDao.getAllQuestions();
+    return data.map((d) => Question.fromOptions(
+      id: d.id,
+      category: d.category,
+      question: d.question,
+      options: d.options,
+      correctAnswer: d.correctAnswer,
+      explanation: d.explanation,
+      subTopic: d.subTopic,
+    )).toList();
   }
 
   @override
-  Future<List<Question>> getByCategory(String category) {
-    return _db.questionDao.getByCategory(category);
+  Future<List<Question>> getByCategory(String category) async {
+    final data = await _db.questionDao.getByCategory(category);
+    return data.map((d) => Question.fromOptions(
+      id: d.id,
+      category: d.category,
+      question: d.question,
+      options: d.options,
+      correctAnswer: d.correctAnswer,
+      explanation: d.explanation,
+      subTopic: d.subTopic,
+    )).toList();
   }
 
   @override
-  Future<List<Question>> getBySubTopic(String category, String subTopic) {
-    return _db.questionDao.getBySubTopic(category, subTopic);
+  Future<List<Question>> getBySubTopic(String category, String subTopic) async {
+    final data = await _db.questionDao.getBySubTopic(category, subTopic);
+    return data.map((d) => Question.fromOptions(
+      id: d.id,
+      category: d.category,
+      question: d.question,
+      options: d.options,
+      correctAnswer: d.correctAnswer,
+      explanation: d.explanation,
+      subTopic: d.subTopic,
+    )).toList();
   }
 
   @override
-  Future<List<Question>> getBookmarked() {
-    return _db.questionDao.getBookmarked();
+  Future<List<Question>> getBookmarked() async {
+    final data = await _db.questionDao.getBookmarked();
+    return data.map((d) => Question.fromOptions(
+      id: d.id,
+      category: d.category,
+      question: d.question,
+      options: d.options,
+      correctAnswer: d.correctAnswer,
+      explanation: d.explanation,
+      subTopic: d.subTopic,
+    )).toList();
   }
 
   @override
-  Future<Question> getById(int id) {
-    return _db.questionDao.getById(id);
+  Future<Question> getById(int id) async {
+    final data = await _db.questionDao.getById(id);
+    return Question.fromOptions(
+      id: data.id,
+      category: data.category,
+      question: data.question,
+      options: data.options,
+      correctAnswer: data.correctAnswer,
+      explanation: data.explanation,
+      subTopic: data.subTopic,
+    );
   }
 }
