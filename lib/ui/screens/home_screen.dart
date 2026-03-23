@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:latihan_cpns/core/constants/app_colors.dart';
-import 'package:latihan_cpns/core/constants/dummy_data.dart';
-import 'package:latihan_cpns/ui/components/banner_ad_widget.dart';
-import 'package:latihan_cpns/ui/components/category_card.dart';
-import 'package:latihan_cpns/ui/components/daily_progress_card.dart';
-import 'package:latihan_cpns/ui/components/streak_banner.dart';
+import 'package:cpns_app/core/constants/app_colors.dart';
+import 'package:cpns_app/core/constants/dummy_data.dart';
+import 'package:cpns_app/ui/components/banner_ad_widget.dart';
+import 'package:cpns_app/ui/components/category_card.dart';
+import 'package:cpns_app/ui/components/daily_progress_card.dart';
+import 'package:cpns_app/ui/components/streak_banner.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});

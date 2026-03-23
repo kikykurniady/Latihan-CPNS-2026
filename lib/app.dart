@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:latihan_cpns/core/constants/app_strings.dart';
-import 'package:latihan_cpns/core/theme.dart';
-import 'package:latihan_cpns/providers/router_provider.dart';
-import 'package:latihan_cpns/providers/streak_provider.dart';
+import 'package:cpns_app/core/constants/app_strings.dart';
+import 'package:cpns_app/core/theme.dart';
+import 'package:cpns_app/providers/router_provider.dart';
+import 'package:cpns_app/providers/streak_provider.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});

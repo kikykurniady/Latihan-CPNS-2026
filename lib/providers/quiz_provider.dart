@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:latihan_cpns/core/constants/dummy_data.dart';
-import 'package:latihan_cpns/models/question.dart';
+import 'package:cpns_app/core/constants/dummy_data.dart';
+import 'package:cpns_app/models/question.dart';
 
 // Holds the user's selected answers for each question
 final selectedAnswersProvider = StateProvider<Map<String, String>>((ref) => ({}));
